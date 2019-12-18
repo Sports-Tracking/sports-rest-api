@@ -2,22 +2,26 @@
 
 ## Setup
 
-- `https://www.youtube.com/watch?v=zDYL22QNiWk`
-- installing dev dependencies: `pipenv install pytest --dev`
-- un-installing dependencies: `pipenv uninstall`
-- remove pipenv file completely: `pipenv --rm`
-
 ### Setup after cloning
 
 1. install python (preferably version 3.8), and pipenv by typring `pip install pipenv`
 2. `git clone [link]`
-3. `pipenv install`
+3. install pipenv: `pip install pipenv`
+4. `pipenv install`
    - make sure this is done in the Pipfile directory
-4. `git branch [your-branch-name]`
-5. `git checkout [your-branch-name]`
-6. when pushing: `git push origin [your-branch-name]`
+5. open the virtualenv: `pipenv shell`
+6. `git branch [your-branch-name]`
+7. `git checkout [your-branch-name]`
+8. when pushing: `git push origin [your-branch-name]`
    - you will get the option to set-upstream.
    - copy that code and you will not need to write origin
+
+### more info
+
+- `https://www.youtube.com/watch?v=zDYL22QNiWk`
+- installing dev dependencies: `pipenv install pytest --dev`
+- un-installing dependencies: `pipenv uninstall`
+- remove pipenv file completely: `pipenv --rm`
 
 ### First Time Setup
 
