@@ -9,8 +9,15 @@
 
 ### Setup after cloning
 
-1. `git clone [link]`
-2. `pipenv install`
+1. install python (preferably version 3.8), and pipenv by typring `pip install pipenv`
+2. `git clone [link]`
+3. `pipenv install`
+   - make sure this is done in the Pipfile directory
+4. `git branch [your-branch-name]`
+5. `git checkout [your-branch-name]`
+6. when pushing: `git push origin [your-branch-name]`
+   - you will get the option to set-upstream.
+   - copy that code and you will not need to write origin
 
 ### First Time Setup
 
