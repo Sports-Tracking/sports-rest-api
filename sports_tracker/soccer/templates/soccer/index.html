@@ -1,14 +1,40 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Soccer</title>
+    <script src="http://www.webglearth.com/v2/api.js"></script>
+    <script>
+      function initialize() {
+        var earth = new WE.map("earth_div", {
+          center: [36.057944835, -112.18688965],
+          zoom: 2,
+          dragging: true
+          // scrollWheelZoom: true
+        });
+        WE.tileLayer("http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+          attribution: "© OpenStreetMap contributors"
+        }).addTo(earth);
+      }
+    </script>
+    <style>
+      html,
+      body {
+        padding: 0;
+        margin: 0;
+      }
+      #earth_div {
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        position: absolute !important;
+        width: 50%;
+        height: 75%;
+        margin: auto auto;
+      }
+    </style>
+    <title>View of Soccer Leagues</title>
   </head>
-  <body>
-    <h1>
-      Soccer Leagues
-    </h1>
-    <ul>
-      <li>Premier League</li>
-    </ul>
+  <body onload="initialize()">
+    <div id="earth_div"></div>
   </body>
 </html>
