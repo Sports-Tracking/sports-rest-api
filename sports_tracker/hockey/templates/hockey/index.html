@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>View of Soccer Leagues</title>
+  </head>
+  <body>
+    <h1>HOCKEY STUFF HERE</h1>
+    <script>
+        fetch("https://statsapi.web.nhl.com/api/v1/teams")
+        .then(data =>
+            data.json()
+        )
+        .then(newData => console.log(newData))
+    </script>
+  </body>
+</html>
