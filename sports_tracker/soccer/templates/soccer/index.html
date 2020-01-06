@@ -4,18 +4,26 @@
 
 {% block content %} 
   <h1>Soccer Clubs</h1>
-{% comment %} https://github.com/footballcsv/footballcsv.github.io {% endcomment %}
-<script>
-  fetch('https://github.com/footballcsv/england/blob/master/2010s/2019-20/eng.5.csv', {
-    method: 'GET', 
-    mode: 'cors', 
-    cache: 'no-cache', 
-    credentials: 'same-origin', 
-    header: {
-      "Access-Control-Allow-Origin": "*"
-    }
+   <table class="table">
+                <thead>
+                  <tr>
+                      <th scope="col">League</th>
+                  </tr>
+                </thead>
+                 <tbody id="tbody">
+                </tbody>
+      </table>
+  <script>
+  fetch('https://soccer.sportmonks.com/api/v2.0/leagues?api_token=R2N3p97BmM5RmN2YtiaAPT9mThWyETOKwudycZRx3aHhnfsiVayoCBoAqbvy')
+  .then(data => data.json())
+  .then(data => {
+    const leagues = data.data
+    leagues.forEach(league => {
+      console.log(league.name)
+      document.getElementById('tbody').innerHTML += `<tr><td>${league.name}</td></tr>`
+    })
+
   })
-  .then(data => console.log({data}))
 
 </script>
 {% endblock content %}

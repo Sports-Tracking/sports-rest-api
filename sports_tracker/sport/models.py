@@ -1,6 +1,6 @@
 from django.db import models
 
-# player is in a team
+# Create your models here.
 
 
 class Player(models.Model):

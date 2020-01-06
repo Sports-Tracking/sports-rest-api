@@ -18,9 +18,32 @@ from django.views.generic.base import TemplateView
 from django.contrib import admin
 from django.urls import include, path
 
+from sport.models import Team
+
+from rest_framework import routers, serializers, viewsets
+
+
+class UserSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Team
+        # fields = ['url', 'username', 'email', 'is_staff']
+
+# ViewSets define the view behavior.
+
+
+class UserViewSet(viewsets.ModelViewSet):
+    queryset = Team.objects.all()
+    serializer_class = UserSerializer
+
+
+router = routers.DefaultRouter()
+router.register(r'users', UserViewSet)
+
+
 urlpatterns = [
     path('', TemplateView.as_view(template_name='index.html'), name="index"),
     path('soccer/', include('soccer.urls')),
     path('admin/', admin.site.urls),
-    path('hockey/', include('hockey.urls'))
+    path('hockey/', include('hockey.urls')),
+    path('api/', include('rest_framework.urls'))
 ]
