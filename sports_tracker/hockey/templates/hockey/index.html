@@ -1,8 +1,7 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>View of Soccer Leagues</title>
-  </head>
+{% extends 'base.html' %}
+
+{% block title %} Hocker NHL League {% endblock title %}
+{% block content %} 
   <body>
     <h1>HOCKEY STUFF HERE</h1>
     <script>
@@ -12,5 +11,4 @@
         )
         .then(newData => console.log(newData))
     </script>
-  </body>
-</html>
+{% endblock content %}
