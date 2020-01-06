@@ -1,11 +1,9 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>View of Soccer Leagues</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
-  </head>
-  <body>
+
+{% extends 'base.html' %}
+
+{% block title %} Hocker NHL League {% endblock title %}
+{% block content %} 
+
     <div class="container">
         <h1>HOCKEY STUFF HERE</h1>
         <table class="table">
@@ -80,5 +78,5 @@
             }
             </script>
     </div>
-  </body>
-</html>
+{% endblock content %}
+
