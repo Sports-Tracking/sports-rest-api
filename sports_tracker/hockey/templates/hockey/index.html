@@ -1,14 +1,82 @@
+
 {% extends 'base.html' %}
 
 {% block title %} Hocker NHL League {% endblock title %}
 {% block content %} 
-  <body>
-    <h1>HOCKEY STUFF HERE</h1>
-    <script>
-        fetch("https://statsapi.web.nhl.com/api/v1/teams")
-        .then(data =>
-            data.json()
-        )
-        .then(newData => console.log(newData))
-    </script>
+
+    <div class="container">
+        <h1>HOCKEY STUFF HERE</h1>
+        <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">Team Name</th>
+                    <th scope="col">Conference</th>
+                    <th scope="col">Division</th>
+                    <th scope="col">Points</th>
+                    <th scope="col">Wins</th>
+                    <th scope="col">Losses</th>
+                    <th scope="col">OT Losses</th>
+                </tr>
+                </thead>
+                <tbody id="tbody">
+                </tbody>
+            </table>
+
+            <canvas id="myChart" width="400" height="400"></canvas>
+
+            <p id="copyright" class="lead p-3 m-3"></p>
+        <script>
+            let teamLabels = [];
+            let teamData = [];
+            fetch("http://statsapi.web.nhl.com/api/v1/teams?expand=team.stats")
+            .then(data =>
+                data.json()
+            )
+            .then(newData => {
+                newData.teams.forEach(team => {
+                    teamLabels.push(team.name);
+                    const teamStat = team.teamStats[0].splits[0].stat;
+                    teamData.push(+teamStat.ptPctg);
+                    document.getElementById("tbody").innerHTML += `
+                    <tr>
+                    <th scope="row">${team.name}</th>
+                    <td>${team.conference.name}</td>
+                    <td>${team.division.name}</td>
+                    <td>${teamStat.pts}</td>
+                    <td>${teamStat.wins}</td>
+                    <td>${teamStat.losses}</td>
+                    <td>${teamStat.ot}</td>
+                    `
+                });
+                drawChart(teamData, teamLabels);
+                document.getElementById("copyright").innerText = newData.copyright;
+            })
+            console.log(teamLabels);
+            console.log(teamData);
+            
+            function drawChart(tData, tLabels) {
+                var ctx = document.getElementById('myChart').getContext('2d');
+                var chart = new Chart(ctx, {
+                // The type of chart we want to create
+                type: 'bar',
+
+                // The data for our dataset
+                data: {
+                    labels: tLabels,
+                    datasets: [{
+                        label: 'Points Percentage',
+                        backgroundColor: '#34b7eb',
+                        borderColor: 'rgb(0, 0, 0)',
+                        borderWidth: 1,
+                        data: tData,
+                    }]
+                },
+
+                // Configuration options go here
+                options: {}
+            });
+            }
+            </script>
+    </div>
 {% endblock content %}
+
