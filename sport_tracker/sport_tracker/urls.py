@@ -29,6 +29,8 @@ from django.views.generic import TemplateView
 urlpatterns = [
     path('', TemplateView.as_view(template_name='home.html')),
     path('api/leagues/', include('sport.api.urls')),
+    path('api/teams/', include('team.api.urls')),
+    path('api/players/', include('player.api.urls')),
     path('admin/', admin.site.urls),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 
