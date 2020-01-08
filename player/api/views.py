@@ -3,7 +3,7 @@ from .serializers import PlayerSerializer
 from player.models import Player
 
 
-class PlayerViewSet(viewsets.ModelViewSet):
+class PlayerViewSet(viewsets.ReadOnlyModelViewSet):
     """
     API endpoint that allows users to be viewed or edited.
     """

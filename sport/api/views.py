@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 from rest_framework import generics
 
 
-class LeagueViewSet(viewsets.ModelViewSet):
+class LeagueViewSet(viewsets.ReadOnlyModelViewSet):
     """
     API endpoint that allows users to be viewed or edited.
     """
@@ -13,7 +13,7 @@ class LeagueViewSet(viewsets.ModelViewSet):
     serializer_class = LeagueSerializer
 
 
-class SoccerLeagueViewSet(viewsets.ModelViewSet):
+class SoccerLeagueViewSet(viewsets.ReadOnlyModelViewSet):
     """
     API endpoint that allows users to be viewed or edited.
     """
@@ -21,7 +21,7 @@ class SoccerLeagueViewSet(viewsets.ModelViewSet):
     serializer_class = LeagueSerializer
 
 
-class UserViewSet(viewsets.ModelViewSet):
+class UserViewSet(viewsets.ReadOnlyModelViewSet):
     """
     API endpoint that allows users to be viewed or edited.
     """
