@@ -12,6 +12,7 @@ django = "==3.0.1"
 djangorestframework = "*"
 markdown = "*"
 django-filter = "*"
+gunicorn = "*"
 
 [requires]
 python_version = "3.8"
