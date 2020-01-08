@@ -2,10 +2,6 @@
 
 ### Django Apps TODO
 
-- [ ] create django app for each sports
-  - [ ] soccer
-  - [ ] hockey
-  - [ ] basketball
 - [ ] create a django app for user
   - [ ] keeps track of login
   - [ ] " " " register
